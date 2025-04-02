@@ -1,0 +1,21 @@
+<resources>
+    <string-array name="priorities">
+        <item>High</item>
+        <item>Medium</item>
+        <item>Low</item>
+    </string-array>
+    <string-array name="sort_options">
+        <item>Дата (по возрастанию)</item>
+        <item>Дата (по убыванию)</item>
+        <item>Приоритет (по возрастанию)</item>
+        <item>Приоритет (по убыванию)</item>
+        <item> Все</item>
+</string-array>
+    <string-array name="time_filter_options">
+        <item>Последний день</item>
+        <item>Последняя неделя</item>
+        <item>Последний месяц</item>
+        <item>Все события</item>
+    </string-array>
+</resources>
+

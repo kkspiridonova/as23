@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white">
+
+        <!-- Поле для ввода названия события -->
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Title"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"/>
+
+        <!-- Поле для ввода описания события -->
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Event Description"
+            android:textColor="@android:color/black"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:inputType="textMultiLine"/>
+
+        <!-- Кнопка для выбора даты и времени -->
+        <Button
+            android:id="@+id/btnDateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Date/Time"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"/>
+
+        <!-- Spinner для выбора приоритета -->
+        <Spinner
+            android:id="@+id/spinnerPriority"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+           />
+
+        <!-- Индикатор приоритета -->
+        <TextView
+            android:id="@+id/priorityColorIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/default_priority"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- Кнопка для сохранения события -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save Event"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+</ScrollView>

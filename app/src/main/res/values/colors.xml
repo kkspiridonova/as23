@@ -1,0 +1,8 @@
+<resources>
+    <color name="low_priority">#4CAF50</color>   <!-- Зеленый -->
+    <color name="medium_priority">#FFEB3B</color> <!-- Желтый -->
+    <color name="high_priority">#F44336</color>   <!-- Красный -->
+    <color name="default_priority">#FFFFFF</color> <!-- Белый -->
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorAccent">#03DAC5</color>
+</resources>
