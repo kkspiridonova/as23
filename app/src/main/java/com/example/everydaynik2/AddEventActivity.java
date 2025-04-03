@@ -122,6 +122,7 @@ public class AddEventActivity extends AppCompatActivity {
     private void scheduleNotification(Event event) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
+        intent.putExtra("eventId", event.getId()); // <-- Добавьте ID
         intent.putExtra("title", event.getTitle());
         intent.putExtra("description", event.getDescription());
 

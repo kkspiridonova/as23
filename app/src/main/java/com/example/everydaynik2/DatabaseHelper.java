@@ -1,11 +1,15 @@
 package com.example.everydaynik2;
 
+import static android.content.ContentValues.TAG;
+
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    // В DatabaseHelper
     public long insertEvent(Event event) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -38,6 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long id = db.insert("events", null, values);
         db.close();
+        Log.d(TAG, "insertEvent: New event ID = " + id); // Логируем ID
         return id;
     }
 
@@ -57,5 +63,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
         }
         return events;
+    }
+    public boolean deleteEvent(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("events", "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+        return result > 0;
     }
 }

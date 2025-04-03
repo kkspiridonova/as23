@@ -16,17 +16,22 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, "onReceive: Уведомление получено!");
 
+        int eventId = intent.getIntExtra("eventId", -1);
         String title = intent.getStringExtra("title");
         String description = intent.getStringExtra("description");
-        Log.d(TAG, "onReceive: title = " + title + ", description = " + description);
+
+        Log.d(TAG, "onReceive: Received alarm for event ID " + eventId);
 
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("event_channel", "Event Notifications", NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel channel = new NotificationChannel(
+                    "event_channel",
+                    "Event Notifications",
+                    NotificationManager.IMPORTANCE_HIGH
+            );
             channel.setDescription("Канал для уведомлений о событиях");
             manager.createNotificationChannel(channel);
-            Log.d(TAG, "onReceive: Notification channel created");
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, "event_channel")
@@ -36,9 +41,8 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
-        int notifyId = (int) System.currentTimeMillis();
-        Log.d(TAG, "onReceive: notifyId = " + notifyId);
-        manager.notify(notifyId, builder.build());
-        Log.d(TAG, "onReceive: Notification sent");
+        // Используем ID события как ID уведомления
+        manager.notify(eventId, builder.build());
+        Log.d(TAG, "onReceive: Notification sent with ID: " + eventId);
     }
 }
