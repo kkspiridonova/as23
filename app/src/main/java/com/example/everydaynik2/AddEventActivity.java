@@ -23,7 +23,7 @@ public class AddEventActivity extends AppCompatActivity {
     private static final String TAG = "AddEventActivity";
     private EditText etTitle, etDescription;
     private Spinner spinnerPriority;
-    private TextView priorityColorIndicator; // Для отображения цвета
+    private TextView priorityColorIndicator;
     private long selectedDateTime = -1;
     private DatabaseHelper dbHelper;
 
@@ -36,7 +36,7 @@ public class AddEventActivity extends AppCompatActivity {
         etTitle = findViewById(R.id.etTitle);
         etDescription = findViewById(R.id.etDescription);
         spinnerPriority = findViewById(R.id.spinnerPriority);
-        priorityColorIndicator = findViewById(R.id.priorityColorIndicator); // Инициализация TextView
+        priorityColorIndicator = findViewById(R.id.priorityColorIndicator);
         dbHelper = new DatabaseHelper(this);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -44,7 +44,6 @@ public class AddEventActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerPriority.setAdapter(adapter);
 
-        // Используем анонимный класс для реализации обоих методов интерфейса
         spinnerPriority.setOnItemSelectedListener(new android.widget.AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(android.widget.AdapterView<?> parentView, android.view.View selectedItemView, int position, long id) {
@@ -53,7 +52,6 @@ public class AddEventActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(android.widget.AdapterView<?> parentView) {
-                // Можно оставить пустым или добавить нужную логику
             }
         });
 
@@ -100,7 +98,7 @@ public class AddEventActivity extends AppCompatActivity {
     private void saveEvent() {
         String title = etTitle.getText().toString().trim();
         String description = etDescription.getText().toString().trim();
-        int priority = spinnerPriority.getSelectedItemPosition();  // Получаем индекс из Spinner без изменения
+        int priority = spinnerPriority.getSelectedItemPosition();
 
         if (title.isEmpty() || description.isEmpty() || selectedDateTime == -1) {
             Toast.makeText(this, "Заполните все поля и выберите дату!", Toast.LENGTH_SHORT).show();
@@ -122,7 +120,7 @@ public class AddEventActivity extends AppCompatActivity {
     private void scheduleNotification(Event event) {
         AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(this, AlarmReceiver.class);
-        intent.putExtra("eventId", event.getId()); // <-- Добавьте ID
+        intent.putExtra("eventId", event.getId());
         intent.putExtra("title", event.getTitle());
         intent.putExtra("description", event.getDescription());
 

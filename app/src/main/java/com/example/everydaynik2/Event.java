@@ -26,7 +26,7 @@ public class Event {
     public int getPriority() { return priority; }
 
     public void setId(int id) {
-        this.id = id; // Добавьте эту строку!
+        this.id = id;
     }
     public int getPriorityColor(Context context) {
         switch (priority) {

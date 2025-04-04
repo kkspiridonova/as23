@@ -6,18 +6,16 @@
     android:orientation="vertical"
     android:background="@android:color/white">
 
-    <!-- Заголовок и описание для фильтрации -->
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Event List"
+        android:text="События"
         android:textSize="20sp"
         android:textColor="@android:color/black"
         android:layout_marginBottom="8dp"
         android:fontFamily="sans-serif-medium"/>
 
-    <!-- Spinner для сортировки -->
     <Spinner
         android:id="@+id/spinner_sort"
         android:layout_width="match_parent"
@@ -25,7 +23,6 @@
         android:layout_marginBottom="16dp"
        />
 
-    <!-- Spinner для фильтрации по времени -->
     <Spinner
         android:id="@+id/spinner_time_filter"
         android:layout_width="match_parent"
@@ -33,18 +30,16 @@
         android:layout_marginBottom="16dp"
         />
 
-    <!-- Кнопка добавления события -->
     <Button
         android:id="@+id/btnAddEvent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Event"
+        android:text="Добавить"
         android:layout_gravity="center"
         android:textColor="@android:color/white"
         android:background="@color/colorPrimary"
         android:layout_marginBottom="16dp"/>
 
-    <!-- RecyclerView для отображения списка событий -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

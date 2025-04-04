@@ -28,13 +28,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.ViewHolder> 
         holder.title.setText(event.getTitle());
         holder.description.setText(event.getDescription());
 
-        // Форматируем дату и устанавливаем в TextView
         holder.dateTime.setText(DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(new Date(event.getDateTime())));
 
-        // Получаем цвет фона в зависимости от приоритета
         int priorityColor = event.getPriorityColor(holder.itemView.getContext());
 
-        // Устанавливаем цвет фона для элемента в зависимости от приоритета
         holder.itemView.setBackgroundColor(priorityColor);
     }
 

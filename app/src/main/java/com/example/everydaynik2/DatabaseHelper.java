@@ -32,7 +32,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    // В DatabaseHelper
     public long insertEvent(Event event) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -43,7 +42,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         long id = db.insert("events", null, values);
         db.close();
-        Log.d(TAG, "insertEvent: New event ID = " + id); // Логируем ID
+        Log.d(TAG, "insertEvent: New event ID = " + id);
         return id;
     }
 

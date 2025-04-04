@@ -41,7 +41,6 @@ public class AlarmReceiver extends BroadcastReceiver {
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setAutoCancel(true);
 
-        // Используем ID события как ID уведомления
         manager.notify(eventId, builder.build());
         Log.d(TAG, "onReceive: Notification sent with ID: " + eventId);
     }
